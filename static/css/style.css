@@ -1,0 +1,81 @@
+/* static/css/style.css */
+
+/* 🔵 General layout */
+body {
+    background-color: #f4f8fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🌦️ Main Title */
+#main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+/* 🔍 Search Form */
+#search-form input {
+    border-radius: 50px; /* ensure pill shape */
+}
+
+#search-form input:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+    border-color: #007bff;
+    outline: none;
+}
+
+#search-form button {
+    border-radius: 50px;
+    min-width: 110px;
+    font-weight: bold;
+}
+
+/* 📦 Card Styles */
+.card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/* 🌤️ Weather Display */
+.card h2 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.card h5 {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.card h6 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* 🌈 Weather Icon */
+#weatherResult img {
+    width: 100px;
+    margin-top: 15px;
+}
+
+.d-flex > div {
+    min-width: 60px;
+    text-align: center;
+}
+
+.forecast-item {
+    min-width: 40px;
+    text-align: center;
+}
+
