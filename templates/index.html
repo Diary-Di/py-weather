@@ -10,7 +10,7 @@
 <div class="container mt-5">
 
     <!-- 🌦️ Title -->
-    <h1 id="main-title" class="mb-4 text-center">🌦️ Weather App</h1>
+    <h1 id="main-title" class="mb-4 text-center">🌦️ Météo</h1>
 
     <!-- 🔍 Search Form -->
     <form method="POST" action="/search" class="d-flex justify-content-center align-items-center gap-2 mb-4" id="search-form">
@@ -18,12 +18,12 @@
             type="text"
             name="city"
             class="form-control rounded-pill"
-            placeholder="Enter a city name"
+            placeholder="Saisissez une ville"
             required
             style="width: 300px;"
         />
-        <button type="submit" class="btn btn-primary rounded-pill px-4">Search</button>
-        <button type="button" onclick="getLocation()" class="btn btn-success rounded-pill px-4">My Location</button>
+        <button type="submit" class="btn btn-primary rounded-pill px-4">Rechercher</button>
+        <button type="button" onclick="getLocation()" class="btn btn-success rounded-pill px-4">Selon ma position</button>
     </form>
 
     <!-- ☁️ Weather Display -->
@@ -38,24 +38,24 @@
                     <!-- 🌡️ Current Conditions -->
                     <div class="row mb-4">
                         <div class="col">
-                            <h5>🌡️ Temperature</h5>
+                            <h5>🌡️ Température</h5>
                             <p class="fw-bold mb-0" style="font-size: 1.5rem;">{{ weather.temperature_current }}°</p>
                             <p class="text-muted">{{ weather.temperature }}</p>
                             <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="icon">
                         </div>
                         <div class="col">
-                            <h5>💧 Humidity</h5>
+                            <h5>💧 Humidité</h5>
                             <p class="fw-bold">{{ weather.humidity }}%</p>
                         </div>
                         <div class="col">
-                            <h5>💨 Wind</h5>
+                            <h5>💨 Vent</h5>
                             <p class="fw-bold">{{ weather.wind }} m/s</p>
                         </div>
                     </div>
 
                     <!-- 🔮 3-Day Forecast -->
                     {% if weather.forecast %}
-                        <h4 class="mb-3 text-center">3-Day Forecast</h4>
+                        <h4 class="mb-3 text-center">Prévisions météo durant 3 jours</h4>
 
                         <div class="row text-center fw-semibold text-secondary">
 

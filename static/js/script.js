@@ -26,7 +26,7 @@ function showWeather(position) {
 
             if (data.forecast && data.forecast.length > 0) {
                 forecastHTML = `
-                    <h4 class="mb-3 text-center">3-Day Forecast</h4>
+                    <h4 class="mb-3 text-center">Prévisions météo durant 3 jours</h4>
                     <div class="row text-center fw-semibold text-secondary">
 
                         <!-- 🌡️ Temperature & Icons -->
@@ -71,17 +71,17 @@ function showWeather(position) {
 
                     <div class="row mb-4">
                         <div class="col">
-                            <h5>🌡️ Temperature</h5>
+                            <h5>🌡️ Température</h5>
                             <p class="fw-bold mb-0" style="font-size: 1.5rem;">${data.temperature_current}°</p>
                             <p class="text-muted">${data.temperature}</p>
                             <img src="https://openweathermap.org/img/wn/${data.icon}@2x.png" alt="icon">
                         </div>
                         <div class="col">
-                            <h5>💧 Humidity</h5>
+                            <h5>💧 Humidité</h5>
                             <p class="fw-bold">${data.humidity}%</p>
                         </div>
                         <div class="col">
-                            <h5>💨 Wind</h5>
+                            <h5>💨 Vent</h5>
                             <p class="fw-bold">${data.wind} m/s</p>
                         </div>
                     </div>
