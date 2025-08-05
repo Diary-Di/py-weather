@@ -29,20 +29,21 @@ function showWeather(position) {
                     <h4 class="mb-3 text-center">3-Day Forecast</h4>
                     <div class="row text-center fw-semibold text-secondary">
 
-                        <!-- 🌡️ Temperature -->
+                        <!-- 🌡️ Temperature & Icons -->
                         <div class="col">
-                            
                             <div class="mb-1 d-flex justify-content-center gap-3">
                                 ${data.forecast.map(day => `<div style="min-width: 40px;">${day.weekday}</div>`).join('')}
                             </div>
                             <div class="d-flex justify-content-center gap-3">
                                 ${data.forecast.map(day => `<div style="min-width: 60px;">${day.temp}</div>`).join('')}
                             </div>
+                            <div class="d-flex justify-content-center gap-3 mt-1">
+                                ${data.forecast.map(day => `<img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="icon" width="50">`).join('')}
+                            </div>
                         </div>
 
                         <!-- 💧 Humidity -->
                         <div class="col">
-                            
                             <div class="mb-1 d-flex justify-content-center gap-3">
                                 ${data.forecast.map(day => `<div style="min-width: 40px;">${day.weekday}</div>`).join('')}
                             </div>
@@ -53,7 +54,6 @@ function showWeather(position) {
 
                         <!-- 💨 Wind -->
                         <div class="col">
-                            
                             <div class="mb-1 d-flex justify-content-center gap-3">
                                 ${data.forecast.map(day => `<div style="min-width: 40px;">${day.weekday}</div>`).join('')}
                             </div>
@@ -74,6 +74,7 @@ function showWeather(position) {
                             <h5>🌡️ Temperature</h5>
                             <p class="fw-bold mb-0" style="font-size: 1.5rem;">${data.temperature_current}°</p>
                             <p class="text-muted">${data.temperature}</p>
+                            <img src="https://openweathermap.org/img/wn/${data.icon}@2x.png" alt="icon">
                         </div>
                         <div class="col">
                             <h5>💧 Humidity</h5>

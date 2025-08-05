@@ -41,6 +41,7 @@
                             <h5>🌡️ Temperature</h5>
                             <p class="fw-bold mb-0" style="font-size: 1.5rem;">{{ weather.temperature_current }}°</p>
                             <p class="text-muted">{{ weather.temperature }}</p>
+                            <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="icon">
                         </div>
                         <div class="col">
                             <h5>💧 Humidity</h5>
@@ -60,7 +61,6 @@
 
                             <!-- 🌡️ Temperature forecast -->
                             <div class="col">
-                                
                                 <div class="mb-1 d-flex justify-content-center gap-3">
                                     {% for day in weather.forecast %}
                                         <div style="min-width: 40px;">{{ day.weekday }}</div>
@@ -71,11 +71,15 @@
                                         <div style="min-width: 60px;">{{ day.temp }}</div>
                                     {% endfor %}
                                 </div>
+                                <div class="d-flex justify-content-center gap-3 mt-1">
+                                    {% for day in weather.forecast %}
+                                        <img src="http://openweathermap.org/img/wn/{{ day.icon }}@2x.png" alt="icon" width="50">
+                                    {% endfor %}
+                                </div>
                             </div>
 
                             <!-- 💧 Humidity forecast -->
                             <div class="col">
-                                
                                 <div class="mb-1 d-flex justify-content-center gap-3">
                                     {% for day in weather.forecast %}
                                         <div style="min-width: 40px;">{{ day.weekday }}</div>
@@ -90,7 +94,6 @@
 
                             <!-- 💨 Wind forecast -->
                             <div class="col">
-                                <!--<h6 class="text-dark">💨 Wind</h6>-->
                                 <div class="mb-1 d-flex justify-content-center gap-3">
                                     {% for day in weather.forecast %}
                                         <div style="min-width: 40px;">{{ day.weekday }}</div>

@@ -24,6 +24,7 @@ def get_three_day_forecast(api_key, query_param, is_coords=False):
 
         for item in data['list']:
             date_str = item['dt_txt'].split(' ')[0]
+            time_str = item['dt_txt'].split(' ')[1]
             date_obj = datetime.strptime(date_str, '%Y-%m-%d').date()
 
             if date_obj > today:
@@ -32,12 +33,18 @@ def get_three_day_forecast(api_key, query_param, is_coords=False):
                         'temp_max': [],
                         'temp_min': [],
                         'humidity': [],
-                        'wind': []
+                        'wind': [],
+                        'icon': None
                     }
+
                 daily_data[date_str]['temp_max'].append(item['main']['temp_max'])
                 daily_data[date_str]['temp_min'].append(item['main']['temp_min'])
                 daily_data[date_str]['humidity'].append(item['main']['humidity'])
                 daily_data[date_str]['wind'].append(item['wind']['speed'])
+
+                # Use icon from 12:00 if available
+                if time_str.startswith('12') and not daily_data[date_str]['icon']:
+                    daily_data[date_str]['icon'] = item['weather'][0]['icon']
 
         count = 0
         for date_str in sorted(daily_data.keys()):
@@ -50,7 +57,8 @@ def get_three_day_forecast(api_key, query_param, is_coords=False):
                 'weekday': date_obj.strftime('%a'),  # Mon, Tue, etc.
                 'temp': f"{round(max(day_data['temp_max']))}°/{round(min(day_data['temp_min']))}°",
                 'humidity': round(sum(day_data['humidity']) / len(day_data['humidity'])),
-                'wind': round(sum(day_data['wind']) / len(day_data['wind']), 2)
+                'wind': round(sum(day_data['wind']) / len(day_data['wind']), 2),
+                'icon': day_data['icon'] or "01d"  # fallback icon
             })
             count += 1
 
@@ -136,6 +144,7 @@ def get_weather_by_coords():
             return jsonify({'error': 'Weather not found'}), 404
 
     return jsonify({'error': 'Invalid coordinates'}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)
