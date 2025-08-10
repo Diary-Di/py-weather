@@ -4,7 +4,7 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = '7e5bef173819ceb922a243e2a2e139c7'
+API_KEY = 'api_key'
 
 
 # 🔍 Helper: Get 3-day forecast from lat/lon or city
